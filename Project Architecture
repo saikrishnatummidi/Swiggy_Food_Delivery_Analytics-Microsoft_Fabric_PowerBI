@@ -1,0 +1,51 @@
+The overall architecture of the project is:
+
+                    Raw Swiggy Files
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │   Fabric          │
+                 │   Lakehouse       │
+                 │                   │
+                 │   Files / Raw Data│
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 Data Cleaning &
+                   Transformation
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │   Lakehouse       │
+                 │     Tables        │
+                 │                   │
+                 │ Cleaned Data      │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │   Fabric Data     │
+                 │    Pipeline       │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │  Fabric Data      │
+                 │    Warehouse      │
+                 │                   │
+                 │ Fact + Dimensions │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Power BI Semantic │
+                 │      Model        │
+                 │   Direct Lake     │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │   Power BI        │
+                 │ Swiggy Analytics   │
+                 │      Report       │
+                 └───────────────────┘
